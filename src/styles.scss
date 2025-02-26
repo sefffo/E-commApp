@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btnn
+{
+    @apply bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded
+}
+.coverPrice
+{
+    @apply bg-green-500 text-white py-2 px-4 rounded
+}
+.clearCart
+{
+    @apply bg-red-500 hover:bg-red-600 text-white rounded
+}
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+
+// .slider-container {
+//     width: 100%;
+//     position: relative;
+//   }
+  
+//   .slide {
+//     background-size: cover;
+//     background-position: center;
+//     width: 100%;
+//     padding-top: 56.25%; /* 16:9 Aspect Ratio */
+//     position: relative;
+//   }
+  
+//   .slide img.visually-hidden {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     opacity: 0;
+//   }

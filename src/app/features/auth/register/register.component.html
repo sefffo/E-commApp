@@ -1,0 +1,208 @@
+<!-- directive ==== formcontrol -->
+    <div class="container p-12 w-9/12 mx-auto">
+
+       
+        <!-- hyzhr lw el err fe data tt3red -->
+        @if (errorMessage.length>0)
+        {
+
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <span class="font-medium"></span> {{errorMessage}}
+            </div>
+        }
+   
+
+        <form action="" [formGroup]="registerForm" (ngSubmit)="registerSubmit()" >
+
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Name : </label>
+                <input formControlName="name" type="text"
+                    class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                    placeholder="" required />
+            </div>
+
+            @if (registerForm.get('name')?.errors&& registerForm.get('name')?.touched) {
+
+                @if (registerForm.get('name')?.getError('required')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> name is required.
+                    </div>
+                }
+                @else if (registerForm.get('name')?.getError('minlength')) {
+
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> name must be at least 3 characters long.
+                    </div>
+                }
+                @else if (registerForm.get('name')?.getError('maxlength')) {
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> name must be at most 20 characters long.
+                    </div>
+                }
+                
+
+
+
+
+            }
+
+            <!-- ============================================================================== -->
+
+
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">E-mail : </label>
+                <input formControlName="email" type="email"
+                    class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                    placeholder="" required />
+            </div>
+
+
+            @if (registerForm.get('email')?.errors&& registerForm.get('email')?.touched) {
+
+
+                @if (registerForm.get('email')?.getError('required')) {
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> Email is required.
+                    </div>
+
+                }
+
+                @else if (registerForm.get('email')?.getError('email')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> E-mail is not valid.
+                    </div>
+                }
+            }
+
+
+
+            <!-- ============================================================================== -->
+
+
+
+
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">password : </label>
+                <input formControlName="password" type="password"
+                    class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                    placeholder="" required />
+            </div>
+
+
+
+            @if (registerForm.get('password')?.errors&& registerForm.get('password')?.touched) {
+
+
+                @if (registerForm.get('password')?.getError('required')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> password is required
+                    </div>
+                }
+                @else if (registerForm.get('password')?.getError('pattern')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span>password must start with a capital letter and contain at least 8 characters.
+                    </div>
+                }
+            }
+            
+            <!-- ============================================================================== -->
+
+
+
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Re password : </label>
+                <input formControlName="rePassword" type="password"
+                    class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                    placeholder="" required />
+            </div>
+
+
+
+
+            @if (registerForm.get('rePassword')?.errors&& registerForm.get('rePassword')?.touched) {
+
+
+                @if (registerForm.get('rePassword')?.getError('required')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> password is required
+                    </div>
+                }
+                @else if (registerForm.get('rePassword')?.getError('pattern')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> password must start with a capital letter and contain at least 8 characters.
+                    </div>
+                }
+            }
+
+            @if (registerForm.errors&&registerForm.touched && registerForm.get('rePassword')?.touched) {
+
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> your re-password Does not match the password.
+                </div>
+            }
+
+
+
+
+
+
+
+            <!-- ============================================================================== -->
+
+
+
+
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Phone Number : </label>
+                <input formControlName="phone" type="tel"
+                    class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                    placeholder="" required />
+            </div>
+
+
+
+            @if (registerForm.get('phone')?.errors&& registerForm.get('phone')?.touched) {
+
+
+                @if (registerForm.get('phone')?.getError('required')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> Phone Number is required
+                    </div>
+                }
+                @else if (registerForm.get('phone')?.getError('pattern')) {
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium"></span> Phone Number must start with 012/010/011/015 and have 11 digits.
+                    </div>
+                }
+            }
+
+
+            <!-- ============================================================================== -->
+
+
+
+
+
+
+            <button [disabled]="registerForm.invalid"  type="submit" class="btnn disabled:bg-green-900 ">Register
+                
+
+                @if (isLoading) {
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                }
+
+                
+            </button>
+        </form>
+    </div>

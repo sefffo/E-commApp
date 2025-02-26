@@ -1,0 +1,15 @@
+<h1 class="text-4xl font-bold text-center text-green-600">All Categories</h1>
+
+
+<div class=" p-10 container mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-4 gap-3">
+    
+    @for (item of allCats; track $index) {
+
+
+        <app-cat-cards [cardCart]="item"></app-cat-cards>
+        
+
+    }
+   
+    
+</div>

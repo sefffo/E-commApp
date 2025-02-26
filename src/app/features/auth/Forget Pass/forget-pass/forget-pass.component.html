@@ -1,0 +1,44 @@
+<h1 class="text-4xl font-bold text-center text-green-600">
+    please enter your Email to get your verification code
+</h1>
+
+<form action="" [formGroup]="ForgetForm" (ngSubmit)="VerifySubmit()">
+    <div class="container p-12 w-9/12 mx-auto">
+
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">E-mail : </label>
+            <input formControlName="email" type="email"
+                class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                placeholder="" required />
+        </div>
+        
+        @if (ForgetForm.get('email')?.errors && ForgetForm.get('email')?.touched) {
+        @if (ForgetForm.get('email')?.getError('required')) {
+        
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-green-800 dark:text-red-400" role="alert">
+            <span class="font-medium"></span>Email is required
+        </div>
+        
+        }
+        
+        @else if (ForgetForm.get('email')?.getError('email')) {
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-green-800 dark:text-red-400" role="alert">
+            <span class="font-medium"></span>pleaser eneter a valid email
+        </div>
+        }
+        
+        
+        
+        
+        }
+
+        <button [disabled]="ForgetForm.invalid" type="submit" class="btnn disabled:bg-green-900 my-6">Verify
+            @if (isLoading)
+            {
+
+            <i class="fa-solid fa-spin  fa-spinner"></i>
+            }
+        </button>
+    
+    </div>
+</form>

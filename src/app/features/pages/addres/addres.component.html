@@ -1,0 +1,124 @@
+
+
+<div class="container mx-auto my-5 w-3/4">
+
+    <div class="container mx-auto text-center my-9">
+
+
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 coverPrice ">Address</h1>
+    
+    </div>
+    
+    <form [formGroup]="addressForm" (ngSubmit)="addressSubmit()">
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Details : </label>
+            <input formControlName="details" type="text"
+                class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                placeholder="" required />
+        </div>
+    
+        @if (addressForm.get('details')?.errors&& addressForm.get('details')?.touched) {
+    
+            @if (addressForm.get('details')?.getError('required')) {
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> details are required.
+                </div>
+            }
+            @else if (addressForm.get('details')?.getError('minlength')) {
+    
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> details must be at least 3 characters long.
+                </div>
+            }
+            @else if (addressForm.get('details')?.getError('maxlength')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> details must be at most 20 characters long.
+                </div>
+            }
+    
+        }
+    
+        <!-- ====================================== -->
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">phone : </label>
+            <input formControlName="phone" type="text"
+                class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                placeholder="" required />
+        </div>
+    
+        @if (addressForm.get('phone')?.errors&& addressForm.get('phone')?.touched) {
+    
+            @if (addressForm.get('phone')?.getError('required')) {
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> phone number is required.
+                </div>
+            }
+            @else if (addressForm.get('phone')?.getError('pattern')) {
+    
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> phone must start with 012 or 015 or 010 or 011 and has 11  digits.
+                </div>
+            }
+            <!-- @else if (addressForm.get('phone')?.getError('maxlength')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> phone must be at most 20 characters long.
+                </div>
+            } -->
+            
+    
+    
+    
+    
+        }
+    
+        <!-- ============================================= -->
+    
+    
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">city : </label>
+            <input formControlName="city" type="text"
+                class="bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                placeholder="" required />
+        </div>
+    
+        @if (addressForm.get('city')?.errors&& addressForm.get('city')?.touched) {
+    
+            @if (addressForm.get('city')?.getError('required')) {
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> city is required.
+                </div>
+            }
+            @else if (addressForm.get('city')?.getError('minlength')) {
+    
+    
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> city must be at least 3 characters long.
+                </div>
+            }
+            @else if (addressForm.get('city')?.getError('maxlength')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium"></span> city must be at most 20 characters long.
+                </div>
+            }
+    
+        }
+
+
+        
+            <div class="text-center">
+                <button   type="submit" class="  btnn disabled:bg-green-900 ">
+            
+                    Check Out
+        
+                    
+                </button>
+            </div>
+    
+    
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div 
+class="cursor-pointer relative max-w-xs bg-white border border-gray-200 rounded-lg shadow overflow-hidden group">
+<div [routerLink]="['/productDetails' , CardProduct._id]">
+      <!-- 3mlt kda bind 3shan as7b el id 3shan awdih 3 al product el hwa 3izo -->
+  <div>
+    <img class="w-full h-auto p-2 rounded-t-lg" [src]="CardProduct.imageCover" alt="Product Image" />
+  </div>
+  <div class="px-5 pb-5">
+    <div >
+      <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">{{CardProduct.category.name}}</span>
+
+      <h5 class="text-lg font-semibold tracking-tight text-gray-900 line-clamp-1">{{CardProduct.title}}</h5>
+    </div>
+    <div class="flex items-center justify-between">
+    </div>
+    <div class="flex items-center mt-2.5 mb-5 space-x-5">
+      <span class="text-xl font-bold text-gray-900">{{CardProduct.price}} EGP</span>
+
+      <span class="ml-auto text-yellow-500 ">⭐ {{CardProduct.ratingsAverage}}</span>
+    </div>
+    
+  </div>
+
+</div>  
+    <!-- Animated Button -->
+    <div  (click)="addToCart(CardProduct._id)"
+       class="absolute bottom-0 left-0 right-0 bg-green-500 text-white font-medium text-sm text-center py-2.5 rounded-b-lg 
+              transform translate-y-full opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100
+              hover:bg-green-600
+              ">
+      Add to Cart
+    </div>
+</div>
